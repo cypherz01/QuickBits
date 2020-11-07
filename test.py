@@ -1,7 +1,4 @@
-def CreateFile():
-    try:
-        open("testFile.txt", "x")
-    finally:
-        return 0
-
-CreateFile()    
+fh = open('demo.txt', 'w')
+fh.write('hello file again!')
+fh.close()
+exit()
