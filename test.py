@@ -1,7 +1,7 @@
 import random
 from random import shuffle
 
-def RANKS(): return ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+def RANKS(): return ['A','2','3','4','5','6','7','8','9','T','J','Q','K']
 def SUITS(): return ['h','d','s','c']
 
 class Savefile:
@@ -38,6 +38,10 @@ class Main:
         deck = Deck()
 
         hand = str(deck.contents[0]) + "-" + str(deck.contents[1])
+        if hand[1] == hand[4]:
+            hand = hand[0]+hand[3]+"S"
+        else:
+            hand = hand[0]+hand[3]+"oS"
         print(hand)
 
         choice = input( "f to fold, k to keep:\n")
