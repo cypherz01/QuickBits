@@ -2,12 +2,12 @@ import random
 from random import shuffle
 
 def RANKS(): return ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
-def SUITS(): return ['Heart','Diamonds','Spades','Clubs']
+def SUITS(): return ['h','d','s','c']
 
 class Savefile:
     def __init__( self, keptCards ):
-        fh = open('demo.txt', 'a')
-        fh.write("\n"+ keptCards + "\n")
+        fh = open('demo.csv', 'a')
+        fh.write(keptCards + ",")
         fh.close()
     
     
@@ -19,7 +19,7 @@ class Card:
         self.suit = suit
     
     def __str__( self ):
-        return self.rank + " of " + self.suit
+        return self.rank + self.suit
         
 class Deck:
 
@@ -37,7 +37,7 @@ class Main:
 
         deck = Deck()
 
-        hand = str(deck.contents[0]) + "\n" + str(deck.contents[1])
+        hand = str(deck.contents[0]) + "-" + str(deck.contents[1])
         print(hand)
 
         choice = input( "f to fold, k to keep:\n")
