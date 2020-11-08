@@ -5,10 +5,9 @@ def RANKS(): return ['A','2','3','4','5','6','7','8','9','T','J','Q','K']
 def SUITS(): return ['h','d','s','c']
 
 class Savefile:
-    def __init__( self, keptCards ):
-        fh = open('demo.csv', 'a')
-        fh.write("\n" + keptCards + ",")
-        fh.close()
+    def __init__( self, keptCards, fh ):
+         fh.write("\n" + keptCards + ",")
+        
     
     
 
@@ -32,6 +31,7 @@ class Deck:
 
 class Main:
 
+    fh = open('demo.csv', 'a')
     x = input("press n for new hand or q to quit: \n")
     while x != 'q':
 
@@ -50,10 +50,11 @@ class Main:
             print ( "you have folded." )
         elif choice == "k":
             print ( "you have kept your hand.")
-            Savefile(hand)
+            Savefile(hand,fh)
         else:
             print ( "invlaid input.")  
         
         x = input("press n for new hand or q to quit: \n")
 
+    fh.close()
     exit()
