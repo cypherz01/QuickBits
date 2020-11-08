@@ -7,7 +7,7 @@ def SUITS(): return ['h','d','s','c']
 class Savefile:
     def __init__( self, keptCards ):
         fh = open('demo.csv', 'a')
-        fh.write(keptCards + ",")
+        fh.write("\n" + keptCards + ",")
         fh.close()
     
     
